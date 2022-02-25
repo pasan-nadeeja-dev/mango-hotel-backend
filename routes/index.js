@@ -4,14 +4,16 @@ import express from "express";
 import { validateBody } from "../validators/validator";
 
 // controllers
-import { registerUser } from "../src/user/controller";
+import { signupUser, signinUser } from "../src/user/controller";
 
 // validator schemas
-import { signupSchema } from "../src/user/schema";
+import { signupSchema, signInSchema } from "../src/user/schema";
 
 // init router
 const router = express.Router();
 
-router.route("/api/user/signup").post(validateBody(signupSchema), registerUser);
+router.route("/api/user/signup").post(validateBody(signupSchema), signupUser);
+
+router.route("/api/user/signin").post(validateBody(signInSchema), signinUser);
 
 export default router;

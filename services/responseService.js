@@ -18,6 +18,15 @@ export default {
       },
     });
   },
+  successWithToken(token, res) {
+    return res.json({
+      status: true,
+      data: {
+        statusCode: res.statusCode,
+        data: token,
+      },
+    });
+  },
   errorWithData(error, res) {
     return res.json({
       status: false,
