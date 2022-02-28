@@ -1,9 +1,9 @@
-import express, { json } from "express";
+import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 
 import appConfig from "../config/appConfig";
-import router from "../routes"
+import router from "../routes";
 
 // create server instance
 const server = express();
@@ -11,11 +11,8 @@ const server = express();
 // Set constant http server port
 const server_port = appConfig.WEB_PORT;
 
-// Enable all cors
+// Enable all CORS
 server.use(cors());
-
-// Parse incomming request with JSON
-server.use(json());
 
 // Set routes
 server.use(router);
