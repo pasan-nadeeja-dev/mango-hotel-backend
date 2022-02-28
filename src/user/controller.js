@@ -7,7 +7,7 @@ export const signupUser = async (req, res) => {
     const output = await createUser(req.body);
     return response.successWithData(output, res);
   } catch (error) {
-    return response.errorWithData(error, res);
+    return response.errorWithMessage(error, res);
   }
 };
 
@@ -17,6 +17,6 @@ export const signinUser = async (req, res) => {
     const token = await signUser(req.body);
     return response.successWithToken(token, res);
   } catch (error) {
-    return response.errorWithData(error, res);
+    return response.errorWithMessage(error, res);
   }
 };
